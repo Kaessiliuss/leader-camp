@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Undying Loyalty · Leaders' Camp 2026–27</title>
+    <meta name="description" content="Leaders' Camp 2026–27 · Groupe Saint Vincent de Paul, Ajaltoun. A weekend for the people who hold everything together. Saturday 24 October, 14:00." />
+    <meta property="og:title" content="Undying Loyalty Yields Unrivaled Power" />
+    <meta property="og:description" content="Leaders' Camp 2026–27 · Saturday 24 October, 14:00. Pull up a chair?" />
+    <meta name="theme-color" content="#0b0a09" />
+    <link rel="icon" type="image/png" href="/logo-group.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Caveat:wght@500;700&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body data-mood="ember">
+    <!-- Liquid-glass refraction (Chromium only, progressive enhancement) -->
+    <svg class="sr-only" aria-hidden="true" width="0" height="0">
+      <filter id="liquid-glass" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="11" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2.5" result="soft" />
+        <feDisplacementMap in="SourceGraphic" in2="soft" scale="30" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
+    <!-- The room: charred planks, firelight, moonlight, your torch, embers, a cat -->
+    <div class="room" aria-hidden="true">
+      <div class="room__grain"></div>
+      <div class="glow glow--fire"></div>
+      <div class="glow glow--moon"></div>
+      <div class="room__torch"></div>
+      <canvas id="embers"></canvas>
+      <svg class="plane" viewBox="0 0 48 28"><path d="M2 14 L46 2 L28 26 L21 16 Z" /><path d="M21 16 L46 2" /></svg>
+      <div class="cat"><span class="cat__body">🐈</span></div>
+      <div class="room__vignette"></div>
+    </div>
+
+    <div class="cursor" aria-hidden="true"><span class="cursor__ring"><b class="cursor__label"></b></span></div>
+
+    <div class="loadbar" aria-hidden="true"><span class="loadbar__fill"></span></div>
+
+    <header class="nav glass glass--liquid">
+      <a class="nav__logos" href="#top" aria-label="Back to top">
+        <img src="/logo-sdl.png" alt="Les Scouts du Liban" />
+        <img src="/logo-group.png" alt="Groupe Saint Vincent de Paul, Ajaltoun" />
+      </a>
+      <span class="nav__title">Leaders' Camp <b>26–27</b></span>
+      <a class="btn btn--brass btn--sm" href="#ledger">Sign the ledger</a>
+    </header>
+
+    <main id="top">
+      <!-- ───────── HERO ───────── -->
+      <section class="hero" data-mood="ember">
+        <div class="hero__bgword" aria-hidden="true">
+          <div class="hero__bgtrack"><span>Leaders' Camp ✦ Leaders' Camp ✦ </span><span>Leaders' Camp ✦ Leaders' Camp ✦ </span></div>
+        </div>
+
+        <div class="sign-drop">
+          <div class="sign">
+            <span class="sign__chain sign__chain--l" aria-hidden="true"></span>
+            <span class="sign__chain sign__chain--r" aria-hidden="true"></span>
+            <div class="sign__board">
+              <p class="sign__small">✦ Leaders' Camp 2026–27 ✦</p>
+              <h1 class="title" aria-label="Undying loyalty yields unrivaled power">
+                <span class="title__line" data-chars>Undying Loyalty</span>
+                <span class="title__line title__line--small">— yields —</span>
+                <span class="title__line" data-chars>Unrivaled Power</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero__sub">A weekend for the people who hold everything together.<br /><b>Saturday 24 October, 14:00.</b></p>
+
+        <div class="countdown glass glass--liquid" data-countdown aria-label="Time until the camp starts">
+          <div><b data-unit="d">00</b><span>days</span></div>
+          <div><b data-unit="h">00</b><span>hours</span></div>
+          <div><b data-unit="m">00</b><span>min</span></div>
+          <div><b data-unit="s">00</b><span>sec</span></div>
+        </div>
+
+        <div class="hero__ctas">
+          <a href="#ledger" class="btn btn--brass">Pull up a chair</a>
+          <a href="#tapes" class="btn btn--glass">What is going on?</a>
+        </div>
+
+        <div class="stickers" aria-hidden="true">
+          <span class="sticker sticker--round" style="--x: 5%; --y: 15%; --r: -12deg">no tents<b>(finally)</b></span>
+          <span class="sticker sticker--tape" style="--x: 74%; --y: 13%; --r: 7deg">26h of controlled chaos</span>
+          <span class="sticker sticker--badge" style="--x: 84%; --y: 50%; --r: 14deg">certified<b>tired</b></span>
+          <span class="sticker sticker--maroon" style="--x: 3%; --y: 55%; --r: 6deg">leaders only 🫡</span>
+          <span class="sticker sticker--paper" style="--x: 78%; --y: 78%; --r: -6deg">tea on tap ☕</span>
+          <span class="sticker sticker--hint" style="--x: 6%; --y: 82%; --r: -4deg">psst… drag us around ↗</span>
+        </div>
+
+      </section>
+
+      <!-- ───────── CAUTION TAPES ───────── -->
+      <div class="tapes" id="tapes" aria-hidden="true">
+        <div class="tape tape--a"><div class="tape__track"><span>Leaders' Camp ✦ 24–25 October ✦ Chabrouh ✦ No tents ✦ 26 hours ✦ Tea on tap ✦ </span><span>Leaders' Camp ✦ 24–25 October ✦ Chabrouh ✦ No tents ✦ 26 hours ✦ Tea on tap ✦ </span></div></div>
+        <div class="tape tape--b"><div class="tape__track"><span>Undying loyalty ✦ yields ✦ unrivaled power ✦ do not cross ✦ leaders only ✦ </span><span>Undying loyalty ✦ yields ✦ unrivaled power ✦ do not cross ✦ leaders only ✦ </span></div></div>
+      </div>
+
+      <!-- ───────── 11:04 P.M. ───────── -->
+      <section class="chapter" id="scene-phone" data-mood="cool" style="--len: 330vh">
+        <div class="stage stage--phone">
+          <p class="giant" aria-hidden="true"><span>11:04</span><span class="outline">p.m.</span></p>
+
+          <div class="phone">
+            <div class="phone__notch"></div>
+            <div class="phone__head">
+              <span class="phone__avatar">🔥</span>
+              <div><b>Maîtrise (official) (real)</b><small data-typing>11 members</small></div>
+            </div>
+            <div class="phone__chat">
+              <div class="phone__scroll">
+                <p class="msg"><b>Karim's mom</b>Bonsoir chef 🙏 is it cold up there? Should I send a second jacket?</p>
+                <p class="msg"><b>CU Meute</b>who has the store room key</p>
+                <p class="msg"><b>ACU Troupe</b>not me</p>
+                <p class="msg"><b>MDG</b>not me</p>
+                <p class="msg"><b>Karim's mom</b>and a third jacket?</p>
+                <p class="msg"><b>+961 •• ••• •••</b>hi is this the scouts. can my son bring his PlayStation</p>
+                <p class="msg msg--out">it's 11 p.m. 🙃</p>
+              </div>
+            </div>
+            <div class="phone__foot"><span class="battery"><i data-battery-bar></i></span><b data-battery>100%</b></div>
+          </div>
+
+          <div class="phone__text skew">
+            <h2>The scouts are asleep. <em>The leaders are not.</em></h2>
+          </div>
+
+          <div class="escapes" aria-hidden="true">
+            <span class="msg msg--fly" style="--x: 4%; --y: 14%; --r: -8deg">guys the rope is missing AGAIN</span>
+            <span class="msg msg--fly" style="--x: 64%; --y: 9%; --r: 6deg">meeting tomorrow 2:00 sharp 🙂</span>
+            <span class="msg msg--fly" style="--x: 72%; --y: 82%; --r: -4deg">who took the big pot</span>
+            <span class="msg msg--fly" style="--x: 8%; --y: 66%; --r: 5deg">do we have a backup game??</span>
+            <span class="msg msg--fly" style="--x: 40%; --y: 84%; --r: -10deg">sorry for the late message 🙈</span>
+            <span class="msg msg--fly" style="--x: 76%; --y: 22%; --r: 9deg">ok but who's buying the charcoal</span>
+            <span class="msg msg--fly" style="--x: 2%; --y: 40%; --r: -3deg">🎤 voice note (4:37)</span>
+            <span class="msg msg--fly" style="--x: 38%; --y: 13%; --r: 12deg">is the meeting still on</span>
+            <span class="msg msg--fly" style="--x: 40%; --y: 60%; --r: -12deg">👍</span>
+            <span class="msg msg--fly" style="--x: 41%; --y: 36%; --r: 8deg">?</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── THE STORE ROOM ───────── -->
+      <section class="scene scene-store" id="scene-store" data-mood="ember">
+        <div class="scene__head skew">
+          <h2>Every group has a store room. <em>Nobody has seen its floor since 2016.</em></h2>
+          <p>Throw the junk in the crate. <b>Find the floor.</b></p>
+        </div>
+        <div class="store" id="store">
+          <div class="store__floor" aria-hidden="true"><span>THE FLOOR.</span><small>first sighting since 2016</small></div>
+          <div class="crate" aria-hidden="true"><span class="crate__label">SORTED <b data-stored>0</b>/<b data-total>12</b></span></div>
+          <span class="store__hint" aria-hidden="true">👆 drag the junk into the crate</span>
+          <button type="button" class="btn btn--brass btn--sm store__again" hidden>Make a mess again</button>
+        </div>
+      </section>
+
+      <!-- ───────── THE DARK WALL ───────── -->
+      <section class="scene scene-dark" id="scene-dark" data-mood="dark">
+        <div class="scene__head skew">
+          <h2>Every unit has <em>that one person.</em></h2>
+          <p>Does everything. Gets clapped for nothing. <b>Take the flashlight. Look closer.</b></p>
+        </div>
+        <div class="darkwall" id="darkwall">
+          <p class="scrawl" style="--x: 4%; --y: 5%; --r: -5deg">counted the tent pegs the night before</p>
+          <p class="scrawl" style="--x: 54%; --y: 8%; --r: 4deg">answered three parents at 11 p.m.</p>
+          <p class="scrawl" style="--x: 8%; --y: 29%; --r: 3deg">prepared a backup game. never needed it. prepared it anyway.</p>
+          <p class="scrawl" style="--x: 57%; --y: 32%; --r: -6deg">found the store room key. it was in the freezer.</p>
+          <p class="scrawl" style="--x: 3%; --y: 54%; --r: -2deg">noticed the quiet kid. sat with him for five minutes.</p>
+          <p class="scrawl" style="--x: 55%; --y: 57%; --r: 6deg">carried the big pot. both ways.</p>
+          <p class="scrawl" style="--x: 7%; --y: 78%; --r: 4deg">said the hard thing in private, not in front of everyone</p>
+          <p class="scrawl" style="--x: 56%; --y: 81%; --r: -4deg">kept the notebook up to date since October</p>
+          <div class="darkwall__shade"></div>
+        </div>
+      </section>
+
+      <!-- ───────── TRUTHS (sideways) ───────── -->
+      <section class="scene-truths" id="scene-truths" data-mood="ember">
+        <div class="truths__pin">
+          <h2 class="truths__title skew">Truths of every unit <span>(scientifically proven)</span></h2>
+          <div class="truths__track">
+            <article class="truth truth--polaroid" style="--r: -4deg">
+              <span class="truth__no">#1</span>
+              <p>The meeting starts at 2:00.</p>
+              <p class="truth__big">It starts at 2:47.</p>
+              <small>Reason: the rope.</small>
+              <span class="truth__clock" aria-hidden="true"><i></i></span>
+            </article>
+            <article class="truth truth--ticket" style="--r: 3deg">
+              <span class="truth__no">#2</span>
+              <p>Somebody says “last song.”</p>
+              <p class="truth__big">It is never the last song.</p>
+              <small>The guitar has 3 strings. Nobody knows the second verse.</small>
+            </article>
+            <article class="truth truth--glass" style="--r: -2deg">
+              <span class="truth__no">#3</span>
+              <p>One sock. No owner.</p>
+              <p class="truth__big">It has attended more camps than you.</p>
+              <small>It has a totem name now.</small>
+            </article>
+            <article class="truth truth--sticky" style="--r: 5deg">
+              <span class="truth__no">#4</span>
+              <p>The scouts are asleep.</p>
+              <p class="truth__big">The leaders are “just discussing one thing.”</p>
+              <small>It is 2 a.m.</small>
+            </article>
+            <article class="truth truth--receipt" style="--r: -5deg">
+              <span class="truth__no">#5</span>
+              <p>Tea at 11 p.m.</p>
+              <p class="truth__big">is stronger than tea at 11 a.m.</p>
+              <small>Science cannot explain it. Science has tried.</small>
+            </article>
+            <article class="truth truth--polaroid" style="--r: 4deg">
+              <span class="truth__no">#6</span>
+              <p>“Five more minutes.”</p>
+              <p class="truth__big">Forty minutes.</p>
+              <small>Every single time.</small>
+            </article>
+            <article class="truth truth--end" style="--r: -3deg">
+              <p class="truth__big">This weekend, the leaders get a weekend.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── THE FIRE ───────── -->
+      <section class="chapter" id="scene-fire" data-mood="fire" style="--len: 250vh">
+        <div class="stage stage--center stage--fire">
+          <p class="fire__intro skew">And somewhere around the fire, someone always says it:</p>
+          <blockquote class="burn">
+            <p data-burn>“Proving undying loyalty yields unrivaled power.”</p>
+          </blockquote>
+          <div class="campfire" aria-hidden="true">
+            <div class="campfire__glow"></div>
+            <div class="flames"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="logs"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── HOUSE RULES ───────── -->
+      <section class="chapter" id="scene-rules" data-mood="wine" style="--len: 240vh">
+        <div class="stage stage--center">
+          <h2 class="rules__h skew">House rules. <em>Non-negotiable.</em></h2>
+          <div class="wall">
+            <p class="slap" style="--r: -4deg; --c: #ffe98a">No tents.<small>It's indoors. Yes, really.</small></p>
+            <p class="slap" style="--r: 3deg; --c: #9fe7ff">You won't choose your team.<small>Nobody does. Trust the process.</small></p>
+            <p class="slap" style="--r: -2deg; --c: #ffb3c4">At midnight the clocks go back.<small>That hour belongs to the veillée.</small></p>
+            <p class="slap" style="--r: 5deg; --c: #b9f5a8">Bring your loyalty.<small>Undying, preferably.</small></p>
+            <p class="slap slap--sealed" style="--r: -3deg; --c: #f3e6c7">Everything else is sealed.<small>Until Saturday, 14:00.</small><span class="seal"><span>SEALED</span></span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────── NOTICE BOARD ───────── -->
+      <section class="notices-section" id="notices" data-mood="ember">
+        <header class="section-head skew">
+          <p class="kicker">The notice board</p>
+          <h2>Pinned by the door.</h2>
+          <p class="muted">Everything you need. Nothing that spoils it.</p>
+        </header>
+        <div class="notices">
+          <article class="notice" style="--r: -2.2deg">
+            <span class="notice__pin" aria-hidden="true"></span>
+            <p class="notice__label">When</p>
+            <p class="notice__value" data-camp="when"></p>
+            <p class="notice__quip">26 hours. 27 if you count the one the clocks give back.</p>
+          </article>
+          <article class="notice notice--stain" style="--r: 1.8deg">
+            <span class="notice__tape" aria-hidden="true"></span>
+            <p class="notice__label">Where</p>
+            <p class="notice__value" data-camp="where"></p>
+            <p class="notice__quip">A real roof. No tents. The cat will show you around. <a data-camp-href="maps" target="_blank" rel="noopener">Open in Maps ↗</a></p>
+          </article>
+          <article class="notice" style="--r: 1.4deg">
+            <span class="notice__tape" aria-hidden="true"></span>
+            <p class="notice__label">How much</p>
+            <p class="notice__value" data-camp="price"></p>
+            <p class="notice__quip" data-camp="priceNote"></p>
+          </article>
+          <article class="notice" style="--r: -1.6deg">
+            <span class="notice__pin" aria-hidden="true"></span>
+            <p class="notice__label">The theme</p>
+            <p class="notice__value">Dota 2 · Undying Loyalty</p>
+            <p class="notice__quip">Never played Dota? Neither has the cat. Showing up is what counts.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ───────── THE LEDGER ───────── -->
+      <section class="ledger" id="ledger" data-mood="ember">
+        <div class="ledger__card glass glass--liquid studs">
+          <div class="ledger__ring" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" /><circle class="ring" cx="60" cy="60" r="52" /></svg>
+            <span><b data-countdown-days>10</b>days<br />left</span>
+          </div>
+          <p class="kicker">The ledger</p>
+          <h2>Your game is ready.</h2>
+          <p class="muted">Write your name in the ledger, then choose. Choose wisely. We'll know.</p>
+
+          <form id="ready-form" novalidate>
+            <label class="field">
+              <span>Name <i>(the real one, not your totem)</i></span>
+              <input name="name" autocomplete="name" maxlength="60" required />
+            </label>
+
+            <fieldset class="field">
+              <legend>Your lane</legend>
+              <div class="chips">
+                <label><input type="radio" name="lane" value="Meute" /><span>Meute</span></label>
+                <label><input type="radio" name="lane" value="Troupe" /><span>Troupe</span></label>
+                <label><input type="radio" name="lane" value="Clan" /><span>Clan</span></label>
+                <label><input type="radio" name="lane" value="MDG" /><span>MDG</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Your role</legend>
+              <div class="chips">
+                <label><input type="radio" name="role" value="CU" /><span>CU</span></label>
+                <label><input type="radio" name="role" value="ACU" /><span>ACU</span></label>
+                <label><input type="radio" name="role" value="Other" /><span>Other</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Phone <i>(optional)</i></span>
+                <input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" />
+              </label>
+              <label class="field">
+                <span>Anything you can't eat? <i>(optional)</i></span>
+                <input name="diet" maxlength="120" placeholder="e.g. allergic to vegetables" />
+              </label>
+            </div>
+
+            <p class="form-error" role="alert" hidden></p>
+
+            <div class="ledger__actions">
+              <button type="button" class="btn btn--brass btn--lg" data-action="accept">I'm in</button>
+              <button type="button" class="btn btn--wine btn--lg" data-action="decline">I'm not coming</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__logos">
+          <img src="/logo-sdl.png" alt="Les Scouts du Liban" />
+          <img src="/logo-group.png" alt="Groupe Saint Vincent de Paul, Ajaltoun" />
+        </div>
+        <p>Les Scouts du Liban · Groupe Saint Vincent de Paul, Ajaltoun</p>
+        <p class="footer__gg">GG.</p>
+      </footer>
+    </main>
+
+    <!-- After "I'm in" / "I'm not coming": full-screen page -->
+    <div class="flow" id="flow" role="dialog" aria-modal="true" aria-label="Registration" hidden>
+      <div class="flow__inner"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
